@@ -6,9 +6,10 @@ title: About
 Hi there, fellows.
 
 **Contacts**
+
 [Github](https://github.com/pavlovdog)
 
-[Ethereum Stackexchange](http://ethereum.stackexchange.com/users/4406/sergey-potekhin)
+[ethereum.stackexchange.com](http://ethereum.stackexchange.com/users/4406/sergey-potekhin)
 
 [VK](https://vk.com/home_pavlovdog)
 
