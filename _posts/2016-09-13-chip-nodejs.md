@@ -37,14 +37,11 @@ One more nuance - for today, [there is no build for Debian](https://www.reddit.c
 
 ```bash
 $ cd /etc/apt/sources.list.d
-$ sudo nano ethereum-ethereum-xenial.list
-$ ####### copy & paste lines bellow to the terminal
-$ deb http://ppa.launchpad.net/ethereum/ethereum/ubuntu xenial main
-$ ####### deb-src http://ppa.launchpad.net/ethereum/ethereum/ubuntu jessie main
-$ ####### press CTRL + O, ENTER (save)
-$ ####### press CTRL + X (exit)
+$ sudo touch ethereum-ethereum-xenial.list
+$ echo "deb http://ppa.launchpad.net/ethereum/ethereum/ubuntu xenial main \n # deb-src http://ppa.launchpad.net/ethereum/ethereum/ubuntu jessie main" > ethereum-ethereum-xenial.list
 $ sudo apt-get update
 $ sudo apt-get install ethereum
+$ geth --dev console # run geth on private blockchain
 ```
 
 That's it! Good luck :)
