@@ -1,5 +1,5 @@
 ---
-title: How to install NodeJS, MongoDB and Geth on ARM computer?
+title: Installing NodeJS, MongoDB and Geth on ARM computer
 ---
 
 Hi there, fellows
