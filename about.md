@@ -3,10 +3,10 @@ layout: page
 title: About
 ---
 
-Hello.
+Hi there, fellows.
 
-The main purpose of this theme is to be as simple as it could be, so you can focus on writing your stuffs. This is your About page. You may describe about yourself here; who you are, what are you currently doing, share some of your projects, your social links and how people can contact you, etc.
-
-**Just write thing that matters..**
-
-Enjoy!
+**Contacts**
+[Github](https://github.com/pavlovdog)
+[Ethereum Stackexchange](http://ethereum.stackexchange.com/users/4406/sergey-potekhin)
+[VK](https://vk.com/home_pavlovdog)
+[Email](mailto:pavlovdog.moscow@gmail.com) - pavlovdog.moscow@gmail.com
