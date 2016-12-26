@@ -43,20 +43,18 @@
 ### Transaction structure
 Общий вид транзакции описан в [официальной спецификации протокола](https://en.bitcoin.it/wiki/Protocol_documentation#tx), здесь же я приведу живой пример, взятый из блога [Davide de Rossa](http://davidederosa.com/); в скобках написан размер для каждого поля в байтах.
 
-<table>
-<tr><td colspan=2>version (4)</td><td>01 00 00 00</td></tr>
-<tr><td colspan=2>input count (1+)</td><td>01</td></tr>
-<tr><td rowspan=5>input</td><td>previous output hash (32)<br></td><td>48 4d 40 d4 5b 9e a0 d6 52 fc a8 25 8a b7 ca a4 25 41 eb 52 97 58 57 f9 6f b5 0c d7 32 c8 b4 81</td></tr>
-<tr><td>previous output index (4)</td><td>00 00 00 00</td></tr>
-<tr><td>script length (1+)</td><td></td></tr>
-<tr><td>scriptSig (?)</td><td>script containing signature</td></tr>
-<tr><td>sequence (4)</td><td>ff ff ff ff</td></tr>
-<tr><td colspan=2>output count (1+)</td><td>01</td></tr>
-<tr><td rowspan=3>output</td><td>value (8)</td><td>62 64 01 00 00 00 00 00</td></tr>
-<tr><td>script length (1+)</td><td></td></tr>
-<tr><td>scriptPubKey (?)</td><td>script containing destination address</td></tr>
-<tr><td colspan=2>block lock time (4)</td><td>00 00 00 00</td></tr>
-</table>
+|version (4)|01 00 00 00|
+|input count (1+)|01|
+|input|previous output hash (32)|48 4d 40 d4 5b 9e a0 d6 52 fc a8 25 8a b7 ca a4 25 41 eb 52 97 58 57 f9 6f b5 0c d7 32 c8 b4 81|
+|previous output index (4)|00 00 00 00|
+|script length (1+)|
+|scriptSig (?)|script containing signature|
+|sequence (4)|ff ff ff ff|
+|output count (1+)|01|
+|output|value (8)|62 64 01 00 00 00 00 00|
+|script length (1+)|
+|scriptPubKey (?)|script containing destination address|
+|block lock time (4)|00 00 00 00|
 
 По какой-то [загадочной причине](http://bitcoin.stackexchange.com/questions/2063/why-does-the-bitcoin-protocol-use-the-little-endian-notation), 'value' и 'previous output hash' должны быть представлены в little endian форме, то есть в нашем случае хэш [транзакции на входе](https://blockchain.info/tx/81b4c832d70cb56ff957589752eb4125a4cab78a25a8fc52d6a09e5bd4404d48) вообще-то равен **81 b4 c8 32...**, хотя в транзакции он записывается в виде **...32 c8 b4 81**. Точно так же сумма транзакции равна **0.00091234** BTC или **0x016462** в hex, но в протоколе она записывается как **62 64 01 00 00 00 00 00**.
 
