@@ -43,6 +43,7 @@
 ### Transaction structure
 Общий вид транзакции описан в [официальной спецификации протокола](https://en.bitcoin.it/wiki/Protocol_documentation#tx), здесь же я приведу живой пример, взятый из блога [Davide de Rossa](http://davidederosa.com/); в скобках написан размер для каждого поля в байтах.
 
+<div>
 <table>
 <tr><td colspan=2>version (4)</td><td>01 00 00 00</td></tr>
 <tr><td colspan=2>input count (1+)</td><td>01</td></tr>
@@ -57,6 +58,7 @@
 <tr><td>scriptPubKey (?)</td><td>script containing destination address</td></tr>
 <tr><td colspan=2>block lock time (4)</td><td>00 00 00 00</td></tr>
 </table>
+</div>
 
 По какой-то [загадочной причине](http://bitcoin.stackexchange.com/questions/2063/why-does-the-bitcoin-protocol-use-the-little-endian-notation), 'value' и 'previous output hash' должны быть представлены в little endian форме, то есть в нашем случае хэш [транзакции на входе](https://blockchain.info/tx/81b4c832d70cb56ff957589752eb4125a4cab78a25a8fc52d6a09e5bd4404d48) вообще-то равен **81 b4 c8 32...**, хотя в транзакции он записывается в виде **...32 c8 b4 81**. Точно так же сумма транзакции равна **0.00091234** BTC или **0x016462** в hex, но в протоколе она записывается как **62 64 01 00 00 00 00 00**.
 
