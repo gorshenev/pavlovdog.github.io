@@ -15,7 +15,7 @@
 1. [Bitcoin in a nutshell — Cryptography 🕵🏻](#)
 2. [Bitcoin in a nutshell — Address 📬](#)
 3. [Bitcoin in a nutshell — Transaction 💰](#)
-4. [Bitcoin in a nutshell — Protocol 🖥]()
+4. [Bitcoin in a nutshell — Protocol 💾]()
 5. [Bitcoin in a nutshell — Blockchain 📋](#)
 6. [Bitcoin in a nutshell — Mining ⛏](#)
 
