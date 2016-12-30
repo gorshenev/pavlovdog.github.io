@@ -12,11 +12,12 @@
 В случае, если большая часть этих выражений для тебя в новинку, рекомендую сначала потратить пару часов и посмотреть [раз](https://www.youtube.com/watch?v=RuZ80TPUF_A), [два](https://www.youtube.com/watch?v=RuZ80TPUF_A), [три](https://www.youtube.com/watch?v=yUZlEgJROKQ).
 
 ## Перечень статей
-1. [Bitcoin in a nutshell. Cryptography.](#)
-2. [Bitcoin in a nutshell. Address.](#)
-3. [Bitcoin in a nutshell. Transaction.](#)
-4. [Bitcoin in a nutshell. Blockchain.](#)
-5. [Bitcoin in a nutshell. Mining.](#)
+1. [Bitcoin in a nutshell — Cryptography 🕵🏻](#)
+2. [Bitcoin in a nutshell — Address 📬](#)
+3. [Bitcoin in a nutshell — Transaction 💰](#)
+4. [Bitcoin in a nutshell — Protocol 🖥]()
+5. [Bitcoin in a nutshell — Blockchain 📋](#)
+6. [Bitcoin in a nutshell — Mining ⛏](#)
 
 ## Ссылки для общего развития
 1. ["Bitcoin: A Peer-to-Peer Electronic Cash System" by Satoshi Nakamoto](https://bitcoin.org/bitcoin.pdf)
