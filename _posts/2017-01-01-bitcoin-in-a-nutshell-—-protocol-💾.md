@@ -80,19 +80,17 @@ Address: 96.2.103.25
 Установка соединения между нодами начинается с обмена двумя сообщениями - первым отправляется [version message](https://en.bitcoin.it/wiki/Protocol_documentation#version), а в качестве ответа на него используется [verack message](https://en.bitcoin.it/wiki/Protocol_specification#verack). Вот иллюстрация процесса *version handshake* из [Bitcoin wiki](https://en.bitcoin.it/wiki/Version_Handshake):
 
 > When the local peer **L** connects to a remote peer **R**, the remote peer will not send any data until it receives a version message.
-```
- L -> R: Send version message with the local peer's version
- R -> L: Send version message back
- R:      Sets version to the minimum of the 2 versions
- R -> L: Send verack message
- L:      Sets version to the minimum of the 2 versions
-```
+-  L -> R: Send version message with the local peer's version
+-  R -> L: Send version message back
+- R:      Sets version to the minimum of the 2 versions
+-  R -> L: Send verack message
+-  L:      Sets version to the minimum of the 2 versions
 
 ### Setting up a connection
 
 Каждое сообщение в сети [должно представляться](https://en.bitcoin.it/wiki/Protocol_documentation#Message_structure) в виде `magic + command + lenght + checksum + payload` - за это отвечает функция `makeMessage`. Этой функцией мы еще воспользуемся, когда будем отправлять транзакцию.
 
-В коде постоянно используется библиотека [struct](https://docs.python.org/2/library/struct.html) - она отвечает за то, чтобы представлять параметры в правильном формате. Например `struct.pack("q", timestamp)` записывает текущее UNIX время в `long long int`, как этого и требует протокол.
+В коде будет постоянно использоваться библиотека [struct](https://docs.python.org/2/library/struct.html) - она отвечает за то, чтобы представлять параметры в правильном формате. Например `struct.pack("q", timestamp)` записывает текущее UNIX время в `long long int`, как этого и требует протокол.
 
 ```python
 import time
@@ -251,7 +249,7 @@ if __name__ == "__main__":
     sock.recv(1024)
 ```
 
-Запускаем получившийся код и идем смотреть на пакеты. Первый признак того, что все сделано правильно - это конечно то, что Wireshark смог верно определить протокол и понять, что чему равно. Второй признак - это ответное сообщение [inv message](https://en.bitcoin.it/wiki/Protocol_documentation#inv) (в противном случае был бы [reject message](https://en.bitcoin.it/wiki/Protocol_documentation#reject)):
+Запускаем получившийся код и идем смотреть на пакеты. Первый признак того, что все сделано верно - это конечно то, что Wireshark смог верно определить протокол и понять, что чему равно. Второй признак - это ответное сообщение [inv message](https://en.bitcoin.it/wiki/Protocol_documentation#inv) (в противном случае был бы [reject message](https://en.bitcoin.it/wiki/Protocol_documentation#reject)):
 
 ![success](https://habrastorage.org/files/47b/d8b/84c/47bd8b84c38c46a2bdd0d173b1334d67.png)
 
