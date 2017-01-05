@@ -214,8 +214,8 @@ int main() {
 }
 </source>
 <p>Для компиляции и запуска используем (предварительно установив libbitcoin):</p>
-<pre><code>$$ g++ -o public_key &lt;filename&gt; $$(pkg-config --cflags --libs libbitcoin)
-$$ ./public_key
+<pre><code>$ g++ -o public_key &lt;filename&gt; $$(pkg-config --cflags --libs libbitcoin)
+$ ./public_key
 Public key: 0202a406624211f2abbdc68da3df929f938c3399dd79fac1b51b0e4ad1d26a47aa
 </code></pre>
 <h3>Sign and verify</h3>
