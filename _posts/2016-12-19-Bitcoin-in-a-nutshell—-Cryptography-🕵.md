@@ -270,7 +270,7 @@ def base58encode(n):
         n /= 58
     return result
 
-# Will be used to decode raw bytes and then encode them to the base58
+# Will be used to decode raw bytes
 def base256decode(s):
     result = 0
     for c in s:
@@ -392,3 +392,5 @@ def keyToAddr(s):
 - [Эллиптическая криптография: теория](https://habrahabr.ru/post/188958/)
 - [Generating A Bitcoin Private Key And Address](https://davanum.wordpress.com/2014/03/17/generating-a-bitcoin-private-key-and-address/)
 - [Generating EC keypair, signing and verifying ECDSA signature](https://kjur.github.io/jsrsasign/sample-ecdsa.html)
+
+
