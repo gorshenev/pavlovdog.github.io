@@ -280,7 +280,7 @@ def base256decode(s):
 def countLeadingZeroes(s):
     count = 0
     for c in s:
-        if c == '\0:
+        if c == '\0':
             count += 1
         else:
             break
