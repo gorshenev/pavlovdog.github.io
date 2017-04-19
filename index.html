@@ -1,31 +1,66 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="First CV in the world, which is stored in the blockchain!">
+    <link rel="stylesheet" type="text/css" href="css/spectre.css">
 
-<section>
+    <title>Sergey Potekhin CV</title>
 
-	{% for post in site.posts %}
-		{% unless post.next %}
-			<h3>{{ post.date | date: '%Y' }} &#172;</h3>
-		{% else %}
-			{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-			{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-			{% if year != nyear %}
-				<h3>{{ post.date | date: '%Y' }} &#172;</h3>
-			{% endif %}
-		{% endunless %}
+    <script src="js/vue.js"></script>
+    <script src="js/abi.js"></script>
+    <!-- <script src="js/web3.js"></script> -->
+    <script src="js/onload.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  </head>
+  <body style="padding-top: 30px">
+    <section class="container grid-960" id="app">
+      <h3>Hi! My name is <mark>{{ basic_data["name"] }}</mark></h3>
+      <p class="notes">This is the first CV in the world, built with <a href="https://www.ethereum.org/">Ethereum blockchain</a>. Every word, which looks like <mark>this</mark>, is stored in the smart-contract. This project os open-source, Github page.</p>
 
-		<ul>
-			<li>
-				<div class="post-date">
-					<span>{{ post.date | date: "%b %d" }}</span>
-				</div>
-				<div class="title">
-					<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-				</div>
-			</li>
-		</ul>
+      <ul>
+        <li>Ropsten : <a href="https://ropsten.etherscan.io/address/0xcfc13ef85d5c37c0b54da991289f44450c3f30d6" target="_blank">0xcfc13ef85d5c37c0b54da991289f44450c3f30d6</a></li>
+      </ul>
 
-	{% endfor %}
+      <h3>About me</h3>
+      <p>I'm from <mark>{{basic_data["address"]}}</mark>, big ethusiast of blockchain, Ethereum, Bitcoin, etc. Also I'm a full-stack developer, big fan of Python and Linux.</p>
+      <div class="divider"></div>
 
-</section>
+      <h3><mark>Education</mark></h3>
+      <ul>
+        <li v-for="(key, data) in educations">
+          {{key.name}}<br>
+          {{key.speciality}} ({{key.year_start}} - {{key.year_finish}})
+        </li>
+      </ul>
+      <div class="divider"></div>
+
+      <h3><mark>Skills</mark></h3>
+      <ul>
+        <li v-for="(key, data) in skills">
+          {{key.name}}
+        </li>
+      </ul>
+      <div class="divider"></div>
+
+      <!-- <h3>Publications</h3>
+      <ul>
+        <li v-for="(key, data) in publications">Bitcoin in a nutshell - Protocol</li>
+      </ul>
+      <div class="divider"></div> -->
+
+      <h3><mark>Projects</mark></h3>
+      <div v-for="(key, data) in projects">
+        <h4><a v-bind:href="key.link" target="_blank">{{key.name}}</a></h4>
+        {{key.desc}}
+        <div class="divider"></div>
+      </div>
+      <div class="divider"></div>
+
+    </section>
+
+  </body>
+  <script src="js/app.js"></script>
+</html>
