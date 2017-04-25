@@ -9,55 +9,67 @@
 
     <title>Sergey Potekhin CV</title>
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="js/vue.js"></script>
     <script src="js/abi.js"></script>
-    <!-- <script src="js/web3.js"></script> -->
     <script src="js/onload.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   </head>
   <body style="padding-top: 30px">
     <section class="container grid-960" id="app">
-      <h3>Hi! My name is <mark>{{ basic_data["name"] }}</mark></h3>
-      <p class="notes">This is the first CV in the world, built with <a href="https://www.ethereum.org/">Ethereum blockchain</a>. Every word, which looks like <mark>this</mark>, is stored in the smart-contract. This project os open-source, Github page.</p>
+      <div class="columns">
+        <div class="column col-6 col-md-12">
+          <h3>Hi! My name is <mark>{{ basic_data["name"] }}</mark></h3>
+          <p clss="notes">And this is the first CV in the world, built with <a href="https://www.ethereum.org/">Ethereum blockchain</a>. Every word or text section, which looks like <mark>this</mark>, is stored in the smart-contract.</p>
+          <p>BTW, this project (<a href="#">Ethereum_CV</a>) is open-source, so pull requests welcome!</p>
+          <ul>
+            <li><code>Ropsten</code> <a href="https://ropsten.etherscan.io/address/0xcfc13ef85d5c37c0b54da991289f44450c3f30d6" target="_blank">0xcfc13ef85d5c37c0b54da991289f44450c3f30d6</a></li>
+          </ul>
 
-      <ul>
-        <li>Ropsten : <a href="https://ropsten.etherscan.io/address/0xcfc13ef85d5c37c0b54da991289f44450c3f30d6" target="_blank">0xcfc13ef85d5c37c0b54da991289f44450c3f30d6</a></li>
-      </ul>
+          <h4>About me</h4>
+          <p>I'm from <mark>{{basic_data["address"]}}</mark> and I love to develop things. Now my biggest passion is blockchain technology (Ethereum, Bitcoin, etc). Also I'm professsional full-stack developer.</p>
+        </div>
+        <div class="column col-6 col-md-12">
+          <h4><mark>My education</mark></h4>
+          <div v-for="(key, value) in educations">
+            <h5>{{key.name}}</h5>
+            <time>{{key.year_start}} - {{key.year_finish}}</time>
+            <p>{{key.speciality}}</p>
+          </div>
+          <div class="column col-12 divider"></div>
+          <h4><mark>Contacts</mark></h4>
+          <p>Feel free to contact me:</p>
+          <ul>
+            <li>Email : <a :href="'mailto:' + basic_data['email']">{{basic_data["email"]}}</a></li>
+            <li>Phone : <a :href="'tel:' + basic_data['tel']">{{basic_data["tel"]}}</a></li>
+            <li>Github : <a :href="basic_data['github']" target="_blank">{{basic_data["github"]}}</a></li>
+            <li>Stackexchange : <a :href="basic_data['stackexchange']" target="_blank">{{basic_data["stackexchange"]}}</a></li>
+          </ul>
+        </div>
+        <div class="column col-12 divider"></div>
 
-      <h3>About me</h3>
-      <p>I'm from <mark>{{basic_data["address"]}}</mark>, big ethusiast of blockchain, Ethereum, Bitcoin, etc. Also I'm a full-stack developer, big fan of Python and Linux.</p>
-      <div class="divider"></div>
+        <div class="column col-12 col-md-12">
+          <h3><mark>Skills</mark></h3>
+          <div align="center" style="width:100%; heigth:100%;" id="skills" style="width : 100%"></div>
+        </div>
+        <div class="column col-12 divider"></div>
 
-      <h3><mark>Education</mark></h3>
-      <ul>
-        <li v-for="(key, data) in educations">
-          {{key.name}}<br>
-          {{key.speciality}} ({{key.year_start}} - {{key.year_finish}})
-        </li>
-      </ul>
-      <div class="divider"></div>
-
-      <h3><mark>Skills</mark></h3>
-      <ul>
-        <li v-for="(key, data) in skills">
-          {{key.name}}
-        </li>
-      </ul>
-      <div class="divider"></div>
-
-      <!-- <h3>Publications</h3>
-      <ul>
-        <li v-for="(key, data) in publications">Bitcoin in a nutshell - Protocol</li>
-      </ul>
-      <div class="divider"></div> -->
-
-      <h3><mark>Projects</mark></h3>
-      <div v-for="(key, data) in projects">
-        <h4><a v-bind:href="key.link" target="_blank">{{key.name}}</a></h4>
-        {{key.desc}}
-        <div class="divider"></div>
+        <div class="column col-5 col-md-12">
+          <h3><mark>Publications</mark></h3>
+          <div v-for="(key, data) in publications">
+            <h5><a v-bind:href="key.link" target="_blank">{{key.name}}</a></h5>
+            {{key.desc}}
+          </div>
+        </div>
+        <div class="column col-7 col-md-12">
+          <h3><mark>Projects</mark></h3>
+          <div v-for="(key, data) in projects">
+            <h4><a v-bind:href="key.link" target="_blank">{{key.name}}</a></h4>
+            <p>{{key.desc}}</p>
+          </div>
+        </div>
+        <div class="column col-12 divider"></div>
       </div>
-      <div class="divider"></div>
 
     </section>
 
